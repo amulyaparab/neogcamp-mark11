@@ -6,15 +6,20 @@ function compareValues(sum, luckyNumber) {
   if (sum % luckyNumber === 0) {
     outputBox.innerText = "Your birthday is lucky!🥳🤩";
   } else {
-    outputBox.innerText = "Your birthday is not lucky🤕 Make your own luck😟";
+    outputBox.innerText = "Your birthday is not lucky🤕 Make your own luck!";
   }
 }
-
 function checkBirthdayIsLuckyHandler() {
   var dob = dateOfBirth.value;
   var sum = calculateSum(dob);
   //   console.log(luckyNumber.value);
   compareValues(sum, luckyNumber.value);
+  if (dob === "") {
+    outputBox.innerText = "Please enter data in both the fields ❌";
+  }
+  if (luckyNumber.value <= 0) {
+    outputBox.innerText = "Please enter valid data❌";
+  }
 }
 
 function calculateSum(dob) {
